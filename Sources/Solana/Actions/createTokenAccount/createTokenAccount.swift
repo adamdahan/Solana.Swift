@@ -11,7 +11,7 @@ extension Action {
         payer: Signer,
         onComplete: @escaping ((Result<(signature: String, newPubkey: String), Error>) -> Void)
     ) {
-        self.api.getRecentBlockhash { resultBlockhash in
+        self.api.getLatestBlockhash { resultBlockhash in
             switch resultBlockhash {
             case .success(let recentBlockhash):
                 self.callGetCreateTokenAccountFee(mintAddress: mintAddress,

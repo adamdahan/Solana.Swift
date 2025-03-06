@@ -11,7 +11,7 @@ extension Action {
             onComplete(.failure(NSError(domain: "accounts not found", code: 404)))
             return
         }
-        let getRecentBlockhashRequest: (Result<String, Error>) -> Void = { result in
+        let getLatestBlockhashRequest: (Result<String, Error>) -> Void = { result in
             switch result {
             case .success(let recentBlockhash):
 
@@ -35,9 +35,9 @@ extension Action {
         }
 
         if let recentBlockhash = recentBlockhash {
-            getRecentBlockhashRequest(.success(recentBlockhash))
+            getLatestBlockhashRequest(.success(recentBlockhash))
         } else {
-            self.api.getRecentBlockhash { getRecentBlockhashRequest($0) }
+            self.api.getLatestBlockhash { getLatestBlockhashRequest($0) }
         }
     }
 }

@@ -114,7 +114,7 @@ class Methods: XCTestCase {
     }
 
     func testGetFeeCalculatorForBlockhash() {
-        let hash = try! solana.api.getRecentBlockhash()?.get()
+        let hash = try! solana.api.getLatestBlockhash()?.get()
         let fee = try! solana.api.getFeeCalculatorForBlockhash(blockhash: hash!)?.get()
         XCTAssertNotNil(fee)
         XCTAssertTrue(fee!.feeCalculator!.lamportsPerSignature > 0)
@@ -201,7 +201,7 @@ class Methods: XCTestCase {
     }
 
     func testGetRecentBlockhash() {
-        let accounts = try! solana.api.getRecentBlockhash()?.get()
+        let accounts = try! solana.api.getLatestBlockhash()?.get()
         XCTAssertNotNil(accounts)
     }
 

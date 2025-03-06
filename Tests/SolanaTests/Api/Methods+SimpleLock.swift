@@ -204,11 +204,11 @@ extension Api {
         return result
     }
 
-    func getRecentBlockhash(commitment: Commitment? = nil) -> Result<String, Error>? {
+    func getLatestBlockhash(commitment: Commitment? = nil) -> Result<String, Error>? {
         var result: Result<String, Error>?
         let lock = RunLoopSimpleLock()
         lock.dispatch { [weak self] in
-            self?.getRecentBlockhash(commitment: commitment) {
+            self?.getLatestBlockhash(commitment: commitment) {
                 result = $0
                 lock.stop()
             }

@@ -21,7 +21,7 @@ class createTokenAccountAsync: XCTestCase {
         // arrange
         let mintAddress = "6AUM4fSvCAxCugrbJPFxTqYFp9r3axYx973yoSyzDYVH"
         networkRouterMock.expectedResults.append(contentsOf: [
-            .success(.json(filename: "getRecentBlockhash")),
+            .success(.json(filename: "getLatestBlockhash")),
             .success(.json(filename: "getMinimumBalanceForRentExemption")),
             .success(.json(filename: "sendTransaction"))
         ])

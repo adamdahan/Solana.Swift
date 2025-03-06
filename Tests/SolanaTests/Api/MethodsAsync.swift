@@ -79,7 +79,7 @@ class MethodsAsync: XCTestCase {
         _ = try await solana.api.getEpochSchedule()
     }
     func testGetFeeCalculatorForBlockhash() async throws {
-        let hash = try await solana.api.getRecentBlockhash()
+        let hash = try await solana.api.getLatestBlockhash()
         let fee = try await solana.api.getFeeCalculatorForBlockhash(blockhash: hash)
         XCTAssertTrue(fee.feeCalculator!.lamportsPerSignature > 0)
     }
@@ -141,7 +141,7 @@ class MethodsAsync: XCTestCase {
         _ = try await solana.api.getVoteAccounts()
     }
     func testGetRecentBlockhash() async throws {
-        _ = try await solana.api.getRecentBlockhash()
+        _ = try await solana.api.getLatestBlockhash()
     }
     func testMinimumLedgerSlot() async throws {
         _ = try await solana.api.minimumLedgerSlot()
